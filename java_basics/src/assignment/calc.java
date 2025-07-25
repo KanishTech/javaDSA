@@ -4,25 +4,43 @@ import java.util.Scanner;
 public class calc {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int ans = 0;
+        while(true){
+            System.out.print("Enter the operator: ");
+            char op = sc.next().trim().charAt(0);
+            if (op == '+' || op == '-' || op == '*' || op == '/' || op == '%') {
+                System.out.print("Enter the numbers: ");
+                int num1 = sc.nextInt();
+                int num2 = sc.nextInt();
 
-        System.out.print("Enter the calculation: ");
-        int num1 = sc.nextInt();
-        String op = sc.next();
-        int num2 = sc.nextInt();
-        System.out.println(op);
-        System.out.println(num1);
-        System.out.println(num2);
-        if (op == "+"){
-            System.out.println(num1+num2);
-        }
-        else if(op == "-"){
-            System.out.println(num1-num2);
-        }
-        else if(op == "*"){
-            System.out.println(num1*num2);
-        }
-        else if(op == "/"){
-            System.out.println(num1/num2);
+                if (op == '+'){
+                    ans = num1+num2;
+                    System.out.println(ans);
+                } else if (op == '-') {
+                    ans = num1-num2;
+                    System.out.println(ans);
+
+                } else if (op == '*') {
+                    ans = num1*num2;
+                    System.out.println(ans);
+
+                } else if (op == '/') {
+                    if (num2 !=0){
+                        ans = num1/num2;
+                    }
+                    System.out.println(ans);
+                } else if (op == '%') {
+                    ans = num1 % num2;
+                    System.out.println(ans);
+                }
+
+            } else if (op == 'x' || op == 'X') {
+                break;
+            }else{
+                System.out.println("Invalid Operator");
+            }
+
+
         }
     }
 }
